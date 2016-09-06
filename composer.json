@@ -44,12 +44,6 @@
             "php artisan optimize"
         ]
     },
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
-        }
-    },
     "config": {
         "preferred-install": "dist"
     }
