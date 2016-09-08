@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+$router->get('/', function () {
+    return view('index');
 });
