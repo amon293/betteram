@@ -15,6 +15,12 @@ $ docker exec -it betteram_php sh -c "composer install"
 $ docker exec -it betteram_php sh -c "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
 $ docker exec -it betteram_php sh -c "php artisan key:generate"
 $ docker exec -it betteram_php sh -c "chmod -R 777 storage"
+
+//Temporarely 
+// install nodejs on your local machine and 
+
+$ npm i -f
+$ ./node_modules/.bin/gulp
 ```
 
 **3 - Set the Database Configs**
