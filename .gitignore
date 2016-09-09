@@ -5,3 +5,9 @@
 Homestead.json
 Homestead.yaml
 .env
+/public/semantic/
+/public/js/
+/public/css/
+/resources/assets/semantic/
+
+*.map

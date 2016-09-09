@@ -1,0 +1,27 @@
+@include component(nav) {
+
+  display: flex;
+  background: gray;
+  align-items: center;
+
+  @include part(brand) {
+    padding: 1em;
+  }
+
+  @include part(right) {
+    padding: 0 1em;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    li {
+      margin: 0 1em;
+      display: inline-block;
+    }
+
+  }
+
+}
+
+nav {
+  @extend .nav
+}

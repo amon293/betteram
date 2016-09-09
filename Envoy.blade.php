@@ -1,4 +1,4 @@
-@servers(['web' => 'ubuntu@52.89.250.145:8080'])
+@servers(['web' => 'ubuntu@52.89.250.145'])
 
 @task('composer-update')
     composer self-update

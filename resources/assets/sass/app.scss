@@ -1,9 +1,15 @@
+@import "../../../node_modules/csstyle/csstyle";
+@import "global";
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+/** Components **/
+//@import "components/navbar";
+//@import "components/form/form";
 
-// Variables
-@import "variables";
+body {
+  display: flex;
+  flex-direction: column;
+}
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@include component(container) {
+  flex: 1;
+}
