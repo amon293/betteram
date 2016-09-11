@@ -2,6 +2,7 @@
 
 /** @var \Illuminate\Routing\Router $router */
 
+use App\Http\Controllers\AirlineController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -27,3 +28,6 @@ $router->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestFor
 $router->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 $router->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 $router->post('password/reset', 'Auth\ResetPasswordController@reset');
+
+
+$router->get('create/airline', AirlineController::class . '@create')->name('create.airline');
