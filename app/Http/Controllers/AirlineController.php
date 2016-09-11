@@ -6,12 +6,11 @@ use App\Http\Requests;
 
 class AirlineController extends Controller
 {
-    public function create($request)
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create()
     {
-        $airline = new Airline();
-
-        $airline->setAttribute('name', $request->get('name'));
-        $airline->save();
-
+        return view('airline.create');
     }
 }

@@ -30,4 +30,4 @@ $router->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetFo
 $router->post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
-$router->get('create/airline', AirlineController::class . '@create')->name('create.airline');
+$router->get('create/airline', AirlineController::class . '@create')->name('airline.create');

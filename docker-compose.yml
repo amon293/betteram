@@ -4,6 +4,8 @@ mysql:
   environment:
     MYSQL_DATABASE: betteram
     MYSQL_ROOT_PASSWORD: 123456
+  ports:
+    - 3306:3306
 
 redis:
   image: redis:alpine

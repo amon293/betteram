@@ -17,6 +17,18 @@
         <a class="item" href="{{ route('home') }}">News</a>
         <div class="right menu">
             <a class="header item" href="{{ route('home') }}">Welcome back, {{ auth()->user()->name }}</a>
+
+            @if(auth()->user()->isAdmin())
+                <div class="ui dropdown item">
+                    Admin Options <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="{{ route('airline.create') }}" class="item">Create Airline</a>
+                        <a class="item">Create Airplane</a>
+                        <a class="item">Create Airport</a>
+                    </div>
+                </div>
+            @endif
+
             <a class="item" href="{{ route('logout') }}">Logout</a>
         </div>
     </div>
