@@ -4,10 +4,6 @@ WORKDIR /var/www/betteram
 
 USER root
 
-RUN apt-get update
-RUN apt-get upgrade -y
-
-RUN truncate -s 0 /etc/apt/sources.list
 RUN echo \
     "deb http://packages.dotdeb.org jessie all" \
     >> /etc/apt/sources.list
@@ -20,7 +16,6 @@ RUN apt-key add dotdeb.gpg
 #RUN apt-add-repository ppa:ondrej/php
 RUN apt-get update --fix-missing
 RUN apt-get upgrade -y
-RUN apt-get install -y php7.0-fpm php7.0-dev php7.0-mysql php7.0-mbstring \
-                       unzip zip curl
+RUN apt-get install -y php7.0
 
 USER jenkins
