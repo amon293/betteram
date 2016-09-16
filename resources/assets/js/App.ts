@@ -1,6 +1,7 @@
 export class App {
 
     init() {
+        console.log('initializing plugins')
         $('.message .close').on('click', function () {
             $(this).closest('.message').transition('fade');
         });
