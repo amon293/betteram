@@ -5,7 +5,7 @@ WORKDIR /var/www/betteram
 USER root
 
 RUN apt-get update
-RUN apt-get upgrade
+RUN apt-get upgrade -y
 
 RUN truncate -s 0 /etc/apt/sources.list
 RUN echo \
@@ -19,7 +19,7 @@ RUN apt-key add dotdeb.gpg
 #RUN apt-get install software-properties-common -y
 #RUN apt-add-repository ppa:ondrej/php
 RUN apt-get update --fix-missing
-RUN apt-get upgrade
+RUN apt-get upgrade -y
 RUN apt-get install -y php7.0-fpm php7.0-dev php7.0-mysql php7.0-mbstring \
                        unzip zip curl
 
