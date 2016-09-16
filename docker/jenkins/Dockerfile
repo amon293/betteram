@@ -4,11 +4,9 @@ WORKDIR /var/www/betteram
 
 USER root
 
+RUN truncate -s 0 /etc/apt/sources.list
 RUN echo \
     "deb http://packages.dotdeb.org jessie all" \
-    "deb-src http://packages.dotdeb.org jessie all" \
-    "deb http://packages.dotdeb.org jessie-php7.0 all" \
-    "deb-src http://packages.dotdeb.org jessie-php7.0 all" \
     >> /etc/apt/sources.list
 
 RUN wget https://www.dotdeb.org/dotdeb.gpg
