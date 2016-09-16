@@ -26,6 +26,22 @@ php:
   volumes:
     - .:/var/www/betteram
 
+jenkins:
+  image: jenkins:alpine
+  container_name: betteram_jenkins
+  working_dir: /var/www/betteram
+  volumes:
+    - ./jenkins:/var/jenkins_home
+  volumes_from:
+    - php
+  links:
+    - php
+    - mysql
+    - nginx
+    - redis
+  ports:
+    - 8000:8080
+
 nginx:
   image: nginx:alpine
   container_name: betteram_nginx
