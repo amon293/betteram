@@ -27,18 +27,14 @@ php:
     - .:/var/www/betteram
 
 jenkins:
-  image: jenkins:alpine
+  build: .
+  dockerfile: ./docker/jenkins/Dockerfile
   container_name: betteram_jenkins
   working_dir: /var/www/betteram
   volumes:
     - ./jenkins:/var/jenkins_home
   volumes_from:
     - php
-  links:
-    - php
-    - mysql
-    - nginx
-    - redis
   ports:
     - 8000:8080
 
