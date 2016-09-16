@@ -12,22 +12,23 @@ class CreateAirplanesTable extends Migration
     /**
      * Run the migrations.
      *
+     * @todo review schema
      * @return void
      */
     public function up()
     {
         Schema::create('airplanes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image');
-            $table->string('model');
-            $table->integer('price');
-            $table->integer('capacity');
-            $table->string('size_class');
-            $table->string('fuel');
-            $table->string('cargo_load');
-            $table->string('range');
-            $table->string('cruise_speed');
-            $table->string('engine');
+            $table->string('image')->nullable();
+            $table->string('model')->nullable();
+            $table->integer('price')->nullable();
+            $table->integer('capacity')->nullable();
+            $table->string('size_class')->nullable();
+            $table->string('fuel')->nullable();
+            $table->string('cargo_load')->nullable();
+            $table->string('range')->nullable();
+            $table->string('cruise_speed')->nullable();
+            $table->string('engine')->nullable();
             $table->timestamps();
         });
 

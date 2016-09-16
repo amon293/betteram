@@ -22,8 +22,8 @@
                 <div class="ui dropdown item">
                     Admin Options <i class="dropdown icon"></i>
                     <div class="menu">
-                        <a href="{{ route('airline.create') }}" class="item">Create Airline</a>
-                        <a class="item">Create Airplane</a>
+                        <a href="{{ route('airlines') }}" class="item">Airlines</a>
+                        <a href="{{ route('airplanes') }}" class="item">Airplanes</a>
                         <a class="item">Create Airport</a>
                     </div>
                 </div>

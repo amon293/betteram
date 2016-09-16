@@ -17,4 +17,11 @@ class Airline extends Model
      * @var string
      */
     protected $table = 'airlines';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name'];
 }

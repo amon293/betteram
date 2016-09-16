@@ -20,6 +20,15 @@ class Airplane extends Model
     protected $table = 'airplanes';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'image', 'model', 'size_class', 'price', 'capacity', 'fuel', 'cargo_load', 'range', 'cruise_speed', 'engine'
+    ];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function manufacturer() : BelongsTo

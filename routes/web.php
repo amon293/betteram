@@ -3,6 +3,7 @@
 /** @var \Illuminate\Routing\Router $router */
 
 use App\Http\Controllers\AirlineController;
+use App\Http\Controllers\AirplaneController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -29,5 +30,16 @@ $router->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmai
 $router->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 $router->post('password/reset', 'Auth\ResetPasswordController@reset');
 
-
+/**
+ * Airlines
+ */
+$router->get('airlines', AirlineController::class . '@index')->name('airlines');
 $router->get('create/airline', AirlineController::class . '@create')->name('airline.create');
+$router->post('create/airline/store', AirlineController::class . '@store')->name('airline.store');
+
+/**
+ * Airplanes
+ */
+$router->get('airplanes', AirplaneController::class . '@index')->name('airplanes');
+$router->get('create/airplane', AirplaneController::class . '@create')->name('airplane.create');
+$router->post('create/airplane/store', AirplaneController::class . '@store')->name('airplane.store');
