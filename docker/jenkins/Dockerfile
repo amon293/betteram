@@ -19,5 +19,7 @@ RUN apt-get upgrade -y
 RUN apt-get install -y php7.0 php7.0-mysql php7.0-mbstring php7.0-redis \
                        php7.0-xml php7.0-mcrypt php7.0-memcached \
                        npm nodejs
+RUN npm install n gulp -g
+RUN n latest
 
 #USER jenkins
