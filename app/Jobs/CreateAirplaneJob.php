@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Events\AirplaneWasCreated;
 use App\Models\Airplane;
+use App\Models\Manufacturer;
 use Illuminate\Http\UploadedFile;
 
 /**
@@ -13,11 +14,15 @@ use Illuminate\Http\UploadedFile;
  */
 class CreateAirplaneJob
 {
-
     /**
-     * @var \App\Jobs\File
+     * @var UploadedFile
      */
     private $image;
+
+    /**
+     * @var Manufacturer
+     */
+    private $manufacturer;
 
     /**
      * @var array
@@ -28,11 +33,13 @@ class CreateAirplaneJob
      * Create a new job instance.
      *
      * @param UploadedFile $image
+     * @param Manufacturer $manufacturer
      * @param array $fields
      */
-    public function __construct(UploadedFile $image, array $fields)
+    public function __construct(UploadedFile $image, Manufacturer $manufacturer, array $fields)
     {
         $this->image = $image;
+        $this->manufacturer = $manufacturer;
         $this->fields = array_filter($fields);
     }
 
@@ -40,7 +47,7 @@ class CreateAirplaneJob
      * Execute the job.
      *
      * @todo properly generate unique name for the airplane image
-     * @param \App\Models\Airplane $airplane
+     * @param Airplane $airplane
      */
     public function handle(Airplane $airplane)
     {
@@ -54,6 +61,12 @@ class CreateAirplaneJob
         );
 
         $airplane->setAttribute('image', asset($image->getPathname()));
+
+        /**
+         * Set Airplane Manufacturer
+         */
+        $airplane->manufacturer()->associate($this->manufacturer);
+
         $airplane->save();
 
         /**

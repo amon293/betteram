@@ -40,6 +40,20 @@
             </div>
 
             <div class="field">
+                <label>Manufacture</label>
+                <div class="ui selection dropdown">
+                    <input type="hidden" name="manufacturer_id">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Manufacture</div>
+                    <div class="menu">
+                        @foreach($manufacturers as $manufacture)
+                            <div class="item" data-value="{{ $manufacture->id }}">{{ $manufacture->name }}</div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            <div class="field">
                 <label>Size</label>
                 <div class="ui selection dropdown">
                     <input type="hidden" name="size_class">

@@ -19,6 +19,7 @@ class CreateAirplanesTable extends Migration
     {
         Schema::create('airplanes', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('manufacturer_id')->unasigned();
             $table->string('image')->nullable();
             $table->string('model')->nullable();
             $table->integer('price')->nullable();

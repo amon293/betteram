@@ -25,6 +25,7 @@
                         <a href="{{ route('airlines') }}" class="item">Airlines</a>
                         <a href="{{ route('airplanes') }}" class="item">Airplanes</a>
                         <a href="{{ route('airports') }}" class="item">Airports</a>
+                        <a href="{{ route('manufactures') }}" class="item">Manufactures</a>
                     </div>
                 </div>
             @endif

@@ -7,6 +7,7 @@ var App = (function () {
             $(this).closest('.message').transition('fade');
         });
         $('.ui.dropdown').dropdown();
+        $('.ui.checkbox').checkbox();
     };
     return App;
 }());

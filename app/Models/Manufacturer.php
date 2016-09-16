@@ -17,7 +17,14 @@ class Manufacturer extends Model
      *
      * @var string
      */
-    protected $table = 'manufactures';
+    protected $table = 'manufacturers';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

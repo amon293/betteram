@@ -5,11 +5,11 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * Class AirplaneCreation
+ * Class ManufactureCreation
  *
  * @package App\Http\Requests
  */
-class AirplaneCreation extends FormRequest
+class ManufactureCreation extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,12 @@ class AirplaneCreation extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @todo create validation fields
      * @return array
      */
     public function rules()
     {
         return [
-            'image' => 'required',
-            'price' => 'integer',
-            'capacity' => 'integer',
-            'manufacturer_id' => 'required|exists:manufacturers,id'
+            'name' => 'required'
         ];
     }
 }

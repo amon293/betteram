@@ -7,6 +7,7 @@ use App\Http\Controllers\AirplaneController;
 use App\Http\Controllers\AirportController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ManufactureController;
 
 $router->group(['middleware' => 'auth'], function ($router) {
 
@@ -51,3 +52,10 @@ $router->post('create/airplane/store', AirplaneController::class . '@store')->na
 $router->get('airports', AirportController::class . '@index')->name('airports');
 $router->get('create/airport', AirportController::class . '@create')->name('airport.create');
 $router->post('create/airport/store', AirportController::class . '@store')->name('airport.store');
+
+/**
+ * Manufacture
+ */
+$router->get('manufactures', ManufactureController::class . '@index')->name('manufactures');
+$router->get('create/manufacture', ManufactureController::class . '@create')->name('manufacture.create');
+$router->post('create/manufacture/store', ManufactureController::class . '@store')->name('manufacture.store');

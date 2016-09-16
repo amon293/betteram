@@ -18,8 +18,8 @@
             </div>
             <div class="field">
                 <div class="ui checkbox">
+                    <label for="remember">Remember Me</label>
                     <input type="checkbox" tabindex="0" class="hidden" name="remember">
-                    <label>Remember Me</label>
                 </div>
             </div>
 
