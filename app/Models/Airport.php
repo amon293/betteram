@@ -17,4 +17,12 @@ class Airport extends Model
      * @var string
      */
     protected $table = 'airports';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'fee', 'size', 'coordinates', 'iata'];
+
 }

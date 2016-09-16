@@ -4,6 +4,7 @@
 
 use App\Http\Controllers\AirlineController;
 use App\Http\Controllers\AirplaneController;
+use App\Http\Controllers\AirportController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -43,3 +44,10 @@ $router->post('create/airline/store', AirlineController::class . '@store')->name
 $router->get('airplanes', AirplaneController::class . '@index')->name('airplanes');
 $router->get('create/airplane', AirplaneController::class . '@create')->name('airplane.create');
 $router->post('create/airplane/store', AirplaneController::class . '@store')->name('airplane.store');
+
+/**
+ * Airport
+ */
+$router->get('airports', AirportController::class . '@index')->name('airports');
+$router->get('create/airport', AirportController::class . '@create')->name('airport.create');
+$router->post('create/airport/store', AirportController::class . '@store')->name('airport.store');
