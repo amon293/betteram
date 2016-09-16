@@ -16,6 +16,6 @@ RUN apt-key add dotdeb.gpg
 #RUN apt-add-repository ppa:ondrej/php
 RUN apt-get update --fix-missing
 RUN apt-get upgrade -y
-RUN apt-get install -y php7.0
+RUN apt-get install -y php7.0 php7.0-mbstring php7.0-redis php7.0-xml php7.0-mcrypt php7.0-memcached
 
 USER jenkins
