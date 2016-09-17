@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -53,14 +54,21 @@ class User extends Authenticatable
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function airline() : HasOne
+    {
+        return $this->hasOne(Airline::class);
+    }
+
+    /**
      * Temporally, move this code to a batter place later
      *
      * @return bool
      */
     public function isAdmin() : bool
     {
-        return $this->roles()->get()
-            ->where('name', 'admin')->isEmpty();
+        return $this->roles()->get()->where('name', 'admin')->isEmpty();
     }
 
 }

@@ -12,6 +12,7 @@ body {
 
 .container {
   -webkit-box-flex: 1;
-  flex: 1; }
+  flex: 1;
+  padding: 5em; }
 
 /*# sourceMappingURL=app.css.map */

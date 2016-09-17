@@ -59,6 +59,19 @@ class RouteServiceProvider extends ServiceProvider
             'namespace' => $this->namespace,
         ], function ($router) {
             require base_path('routes/web.php');
+            $this->mapUserRoutes();
+        });
+    }
+
+    /**
+     * Define the "user" routes for the application.
+     *
+     * @return void
+     */
+    protected function mapUserRoutes()
+    {
+        Route::group(['prefix' => 'user', 'as' => 'user.'], function ($router) {
+            require base_path('routes/user.php');
         });
     }
 

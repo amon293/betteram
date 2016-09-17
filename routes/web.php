@@ -9,12 +9,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ManufactureController;
 
-$router->group(['middleware' => 'auth'], function ($router) {
-
-    $router->get('/', function () {
-        return view('index');
-    })->name('home');
-
+$router->group(['middleware' => ['auth', 'test']], function ($router) {
+    $router->get('/', function () { return view('index'); })->name('home');
 });
 
 // Authentication Routes...

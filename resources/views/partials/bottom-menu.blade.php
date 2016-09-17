@@ -19,8 +19,24 @@
         <i class="plane icon"></i>
         Routes & Airports
     </a>
-    <a class="item">
+    <div class="ui pointing dropdown link item">
         <i class="shopping bag icon"></i>
-        Shopping
-    </a>
+        <span class="text">Shopping</span>
+        <div class="menu">
+            <div class="header">Airplanes</div>
+            <div class="item">
+                <i class="dropdown icon"></i>
+                <span class="text">Models</span>
+                <div class="left menu">
+                    <div class="header">Model 1</div>
+                    <div class="header">Model 2</div>
+                    <div class="header">Model ...</div>
+                </div>
+            </div>
+            <a href="{{ route('user.shopping.index') }}" class="item">Purchase Airplanes</a>
+            <div class="divider"></div>
+            <div class="header">Something...</div>
+            <div class="item">Gasoline</div>
+        </div>
+    </div>
 </div>

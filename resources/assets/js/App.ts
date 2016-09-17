@@ -7,6 +7,21 @@ export class App {
         });
         $('.ui.dropdown').dropdown();
         $('.ui.checkbox').checkbox();
+
+        /**
+         * Shopping Popup menu
+         */
+        $('.shopping')
+            .popup({
+                inline: false,
+                hoverable: true,
+                position: 'bottom right',
+                delay: {
+                    show: 20,
+                    hide: 20
+                }
+            })
+
     }
 
 }

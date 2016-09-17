@@ -13,3 +13,4 @@ Homestead.yaml
 /public/uploads/*
 
 *.map
+/typings/

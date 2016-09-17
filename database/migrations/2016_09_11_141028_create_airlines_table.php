@@ -19,6 +19,7 @@ class CreateAirlinesTable extends Migration
         Schema::create('airlines', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('user_id')->unasigned();
             $table->timestamps();
         });
     }

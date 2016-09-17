@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Events\AirlineWasCreated;
 use App\Models\Airline;
+use App\Models\User;
 
 /**
  * Class CreateAirlineJob
@@ -12,20 +13,26 @@ use App\Models\Airline;
  */
 class CreateAirlineJob
 {
+    /**
+     * @var User
+     */
+    private $user;
 
     /**
-     * @var string
+     * @var array
      */
-    private $name;
+    private $fields;
 
     /**
      * Create a new job instance.
      *
-     * @param string $name
+     * @param User $user
+     * @param array $fields
      */
-    public function __construct(string $name)
+    public function __construct(User $user, array $fields)
     {
-        $this->name = $name;
+        $this->user = $user;
+        $this->fields = $fields;
     }
 
     /**
@@ -36,11 +43,11 @@ class CreateAirlineJob
     public function handle(Airline $airline)
     {
 
-        $airline = $airline->create([
-            'name' => $this->name
-        ]);
+        $airline = $airline->fill($this->fields);
+        $airline->user()->associate($this->user);
+        $airline->save();
 
-        /**
+        /*
          * Announce AirlineWasCreated
          */
         event(new AirlineWasCreated($airline));

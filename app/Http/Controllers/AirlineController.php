@@ -39,7 +39,7 @@ class AirlineController extends Controller
     {
 
         $this->dispatch(new CreateAirlineJob(
-            $request->input('name')
+            $request->user(), $request->all()
         ));
 
         return redirect()
