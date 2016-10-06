@@ -9,7 +9,7 @@ Homestead.yaml
 /public/semantic/
 /public/js/
 /public/css/
-/resources/assets/semantic/
+/public/semantic/
 /public/uploads/*
 
 *.map

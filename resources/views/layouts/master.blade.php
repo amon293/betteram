@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('semantic/semantic.css') }}" rel="stylesheet">
+    <link href="{{ asset('semantic/dist/semantic.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -36,7 +36,7 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('semantic/semantic.js') }}"></script>
+<script src="{{ asset('semantic/dist/semantic.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 
 </body>

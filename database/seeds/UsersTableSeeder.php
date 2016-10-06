@@ -21,12 +21,12 @@ class UsersTableSeeder extends Seeder
         });
 
         $data = [
-            1 => [
+            2 => [
                 'name' => 'admin',
                 'email' => 'admin@admin.com',
                 'password' => '123456'
             ],
-            2 => [
+            1 => [
                 'name' => 'user',
                 'email' => 'user@user.com',
                 'password' => '123456'

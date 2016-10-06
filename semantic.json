@@ -1,5 +1,5 @@
 {
-  "base": "resources/assets/semantic",
+  "base": "resources\\assets\\semantic",
   "paths": {
     "source": {
       "config": "src/theme.config",
@@ -8,15 +8,15 @@
       "themes": "src/themes/"
     },
     "output": {
-      "packaged": "../../../public/semantic/",
-      "uncompressed": "../../../public/semantic/components/",
-      "compressed": "../../../public/semantic/components/",
-      "themes": "../../../public/semantic/themes/"
+      "packaged": "dist/",
+      "uncompressed": "dist/components/",
+      "compressed": "dist/components/",
+      "themes": "dist/themes/"
     },
-    "clean": "../../../public/semantic/"
+    "clean": "dist/"
   },
   "permission": false,
-  "autoInstall": true,
+  "autoInstall": false,
   "rtl": false,
   "version": "2.2.4"
 }
