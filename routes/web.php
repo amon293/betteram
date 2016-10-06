@@ -33,10 +33,10 @@ $router->post('password/reset', 'Auth\ResetPasswordController@reset');
  */
 $router->get('airlines', AirlineController::class . '@index')->name('airlines');
 $router->get('create/airline', AirlineController::class . '@create')->name('airline.create');
-$router->delete('airlines/{id}', AirlineController::class . '@delete')->name('airline.delete');
-$router->get('airlines/{id}/edit', AirlineController::class . '@edit')->name('airline.edit');
-$router->put('airlines/{id}',AirlineController::class. '@update')->name('airline.update');
 $router->post('create/airline/store', AirlineController::class . '@store')->name('airline.store');
+$router->get('airline/{id}/edit', AirlineController::class . '@edit')->name('airline.edit');
+$router->put('airline/{id}',AirlineController::class. '@update')->name('airline.update');
+$router->delete('airline/{id}', AirlineController::class . '@delete')->name('airline.delete');
 
 /**
  * Airplanes
@@ -44,6 +44,9 @@ $router->post('create/airline/store', AirlineController::class . '@store')->name
 $router->get('airplanes', AirplaneController::class . '@index')->name('airplanes');
 $router->get('create/airplane', AirplaneController::class . '@create')->name('airplane.create');
 $router->post('create/airplane/store', AirplaneController::class . '@store')->name('airplane.store');
+$router->get('airplane/{id}/edit', AirplaneController::class . '@edit')->name('airplane.edit');
+$router->put('airplane/{id}',AirplaneController::class. '@update')->name('airplane.update');
+$router->delete('airline/{id}',AirplaneController::class . '@delete')->name('airplane.delete');
 
 /**
  * Airport
@@ -51,6 +54,10 @@ $router->post('create/airplane/store', AirplaneController::class . '@store')->na
 $router->get('airports', AirportController::class . '@index')->name('airports');
 $router->get('create/airport', AirportController::class . '@create')->name('airport.create');
 $router->post('create/airport/store', AirportController::class . '@store')->name('airport.store');
+$router->get('airport/{id}/edit', AirportController::class . '@edit')->name('airport.edit');
+$router->put('airport/{id}',AirportController::class. '@update')->name('airport.update');
+$router->delete('airport/{id}',AirportController::class . '@delete')->name('airport.delete');
+
 
 /**
  * Manufacture

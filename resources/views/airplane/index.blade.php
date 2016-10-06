@@ -28,7 +28,7 @@
                 </td>
                 <td>{{ $airplane->model }}</td>
                 <td>
-                    <a href="#" onclick="alert('to do')">{{ $airplane->manufacturer->name }}</a>
+                    <a href="{{route('manufactures')}}">{{ $airplane->manufacturer->name }}</a>
                 </td>
                 <td>{{ $airplane->price }}</td>
                 <td>{{ $airplane->size_class }}</td>
@@ -38,9 +38,16 @@
                 <td>{{ $airplane->cruise_speed }}</td>
                 <td>{{ $airplane->engine }}</td>
                 <td class="collapsing">
-                    <div class="ui small basic icon buttons" onclick="alert('to do')">
-                        <button class="ui button"><i class="edit icon"></i> Edit</button>
-                        <button class="ui button"><i class="x icon"></i> Delete</button>
+                    <div class="ui small basic icon buttons">
+
+                        <a href="{{route('airplane.edit',$airplane->id)}}"  class="ui button"><i class="edit icon"></i> Edit</a>
+
+                        <form action="{{route('airplane.delete',$airplane->id)}}" method="POST">
+                            {{csrf_field()}}
+                            {{method_field('DELETE')}}
+                            <button type="submit" class="ui button"><i class="x icon"></i> Delete</button>
+                        </form>
+
                     </div>
                 </td>
             </tr>
@@ -50,16 +57,7 @@
         <tr>
             <th colspan="11">
                 <div class="ui right floated pagination menu" onclick="alert('to do')">
-                    <a class="icon item">
-                        <i class="left chevron icon"></i>
-                    </a>
-                    <a class="item">1</a>
-                    <a class="item">2</a>
-                    <a class="item">3</a>
-                    <a class="item">4</a>
-                    <a class="icon item">
-                        <i class="right chevron icon"></i>
-                    </a>
+                   {{--{{$airplanes->links()}}--}}
                 </div>
             </th>
         </tr>

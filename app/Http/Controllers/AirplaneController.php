@@ -6,6 +6,7 @@ use App\Http\Requests\AirplaneCreation;
 use App\Jobs\CreateAirplaneJob;
 use App\Models\Airplane;
 use App\Models\Manufacturer;
+use File;
 
 /**
  * Class AirplaneController
@@ -51,5 +52,34 @@ class AirplaneController extends Controller
         return redirect()
             ->route('airplanes')
             ->withSuccess('Airplane was Created Successfully.');
+    }
+
+    public function edit(Manufacturer $manufacturer,$id)
+    {
+        $airplane = Airplane::find($id);
+
+        return view('airplane.edit',compact('airplane'))->with('manufacturers',$manufacturer->all());
+    }
+
+    public function update(AirplaneCreation $request,$id)
+    {
+
+       Airplane::find($id)->update($request->all());
+
+        return redirect()
+            ->route('airplane')
+            ->withSuccess('Airplane was updated Successfully.');
+    }
+
+    public function delete($id) {
+
+       $airplane = Airplane::find($id);
+       $file_path = trim($airplane->image,'http://192.168.99.100:8080');
+       File::delete($file_path);
+       $airplane->delete();
+
+       return redirect()
+           ->route('airplanes')
+           ->withSuccess('Airplane was Deleted Successfully');
     }
 }

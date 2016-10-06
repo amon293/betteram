@@ -19,7 +19,8 @@ class AirlineController extends Controller
      */
     public function index(Airline $airline)
     {
-        return view('airline.index')->with('airlines', $airline->all());
+        $airlines = $airline->orderby('id','DESC')->paginate(5);
+        return view('airline.index',compact('airlines'));
     }
 
     /**
@@ -72,7 +73,5 @@ class AirlineController extends Controller
               ->route('airlines')
               ->withSuccess('Airline was Deleted Successfully');
     }
-
-
 
 }
