@@ -47,4 +47,32 @@ class AirlineController extends Controller
             ->withSuccess('Airline was Created Successfully.');
     }
 
+    public function edit($id)
+    {
+        $airline = Airline::find($id);
+
+        return view('airline.edit',compact('airline'));
+    }
+
+    public function update(AirlineCreation $request,$id)
+    {
+
+       Airline::find($id)->update($request->all());
+
+        return redirect()
+            ->route('airlines')
+            ->withSuccess('Airline was updated Successfully.');
+    }
+
+    public function delete($id)
+    {
+       Airline::find($id)->delete();
+
+       return redirect()
+              ->route('airlines')
+              ->withSuccess('Airline was Deleted Successfully');
+    }
+
+
+
 }

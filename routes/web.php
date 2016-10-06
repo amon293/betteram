@@ -33,6 +33,9 @@ $router->post('password/reset', 'Auth\ResetPasswordController@reset');
  */
 $router->get('airlines', AirlineController::class . '@index')->name('airlines');
 $router->get('create/airline', AirlineController::class . '@create')->name('airline.create');
+$router->delete('airlines/{id}', AirlineController::class . '@delete')->name('airline.delete');
+$router->get('airlines/{id}/edit', AirlineController::class . '@edit')->name('airline.edit');
+$router->put('airlines/{id}',AirlineController::class. '@update')->name('airline.update');
 $router->post('create/airline/store', AirlineController::class . '@store')->name('airline.store');
 
 /**

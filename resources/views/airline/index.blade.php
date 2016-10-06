@@ -16,9 +16,13 @@
             <tr>
                 <td>{{ $airline->name }}</td>
                 <td class="collapsing">
-                    <div class="ui small basic icon buttons" onclick="alert('to do')">
-                        <button class="ui button"><i class="edit icon"></i> Edit</button>
-                        <button class="ui button"><i class="x icon"></i> Delete</button>
+                    <div class="ui small basic icon buttons">
+                        <a href="{{route('airline.edit',$airline->id)}}" class="ui button"><i class="edit icon"></i> Edit</a>
+                        <form action="{{route('airline.delete',$airline->id)}}" method="POST">
+                        <button type='submit' class="ui button"><i class="x icon"></i> Delete</button>
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                        </form>
                     </div>
                 </td>
             </tr>

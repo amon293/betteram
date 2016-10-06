@@ -20,4 +20,5 @@
             <button class="ui button" tabindex="0">Create</button>
         </form>
     </div>
+
 @endsection
