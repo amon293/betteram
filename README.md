@@ -19,9 +19,20 @@ $ docker exec -it betteram_php sh -c "php artisan migrate"
 
 //Temporarely 
 // install nodejs on your local machine and 
+// install gulp globally on your machine (npm install gulp -g)
 
 $ npm i -f
+
+//Temporarely
+While https://github.com/Semantic-Org/Semantic-UI/pull/4567 is not merged into the semantic-ui we have to do this step manually
+gulp install --gulpfile node_modules/semantic-ui/gulpfile.js
+ * Yes, extend my current settings.
+ * Automatic (Use defaults locations and all components)
+ * Is this your project folder (choose yes)
+ * Where should we put Semantic UI inside your project? ( write: resources/assets/semantic )
+
 $ ./node_modules/.bin/gulp
+
 ```
 
 **3 - Set the Database Configs**
