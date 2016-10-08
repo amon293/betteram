@@ -19,8 +19,8 @@ class AirlineController extends Controller
      */
     public function index(Airline $airline)
     {
-        $airlines = $airline->orderby('id','DESC')->paginate(5);
-        return view('airline.index',compact('airlines'));
+        $airlines = $airline->orderby('id', 'DESC')->paginate(5);
+        return view('airline.index', compact('airlines'));
     }
 
     /**
@@ -52,26 +52,40 @@ class AirlineController extends Controller
     {
         $airline = Airline::find($id);
 
-        return view('airline.edit',compact('airline'));
+        return view('airline.edit', compact('airline'));
     }
 
-    public function update(AirlineCreation $request,$id)
+    /**
+     * Update Airline
+     *
+     * @param \App\Http\Requests\AirlineCreation $request
+     * @param \App\Models\Airline $airline
+     * @return mixed
+     */
+    public function update(AirlineCreation $request, Airline $airline)
     {
 
-       Airline::find($id)->update($request->all());
+        $airline->update($request->all());
 
         return redirect()
             ->route('airlines')
             ->withSuccess('Airline was updated Successfully.');
     }
 
-    public function delete($id)
+    /**
+     * Delete an Airline
+     *
+     * @param \App\Models\Airline $airline
+     * @return mixed
+     */
+    public function delete(Airline $airline)
     {
-       Airline::find($id)->delete();
 
-       return redirect()
-              ->route('airlines')
-              ->withSuccess('Airline was Deleted Successfully');
+        $airline->delete();
+
+        return redirect()
+            ->route('airlines')
+            ->withSuccess('Airline was Deleted Successfully');
     }
 
 }

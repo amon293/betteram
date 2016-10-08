@@ -9,6 +9,11 @@
     php artisan migrate:refresh --seed
 @endtask
 
+@task('update')
+    cd betteram
+    git pull
+@endtask
+
 @task('remove-clone')
     sudo rm -r -f betteram
     git clone https://github.com/amon293/betteram

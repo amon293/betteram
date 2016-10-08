@@ -19,8 +19,8 @@ class AirportController extends Controller
      */
     public function index(Airport $airport)
     {
-        $airports = $airport->orderby('id','DESC')->paginate(5);
-        return view('airport.index',compact('airports'));
+        $airports = $airport->orderby('id', 'DESC')->paginate(5);
+        return view('airport.index', compact('airports'));
     }
 
     /**
@@ -48,28 +48,48 @@ class AirportController extends Controller
             ->withSuccess('Airport was Created Successfully.');
     }
 
-    public function edit($id)
+    /**
+     * Edit Airport
+     *
+     * @param \App\Models\Airport $airport
+     * @return $this
+     */
+    public function edit(Airport $airport)
     {
-        $airport = Airport::find($id);
-
-        return view('airport.edit',compact('airport'));
+        return view('airport.edit')->with('airport', $airport);
     }
 
-    public function update(AirportCreation $request,$id)
+    /**
+     * Update Airport
+     *
+     * @param \App\Http\Requests\AirportCreation $request
+     * @param \App\Models\Airport $airport
+     * @return mixed
+     */
+    public function update(AirportCreation $request, Airport $airport)
     {
-       Airport::find($id)->update($request->all());
+
+        $airport->update($request->all());
 
         return redirect()
             ->route('airports')
             ->withSuccess('Airport was updated Successfully.');
     }
 
-    public function delete($id)
+    /**
+     * Delete Airport
+     *
+     * @param \App\Models\Airport $airport
+     * @return mixed
+     */
+    public function delete(Airport $airport)
     {
-      Airport::find($id)->delete();
 
-       return redirect()
-              ->route('airports')
-              ->withSuccess('Airport was Deleted Successfully');
+        $airport->delete();
+
+        return redirect()
+            ->route('airports')
+            ->withSuccess('Airport was Deleted Successfully');
     }
+
 }

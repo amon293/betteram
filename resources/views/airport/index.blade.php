@@ -17,8 +17,8 @@
                 <td>{{ $airport->name }}</td>
                 <td class="collapsing">
                     <div class="ui small basic icon buttons">
-                        <a href="{{route('airport.edit',$airport->id)}}" class="ui button"><i class="edit icon"></i> Edit</a>
-                        <form action="{{route('airport.delete',$airport->id)}}" method="POST">
+                        <a href="{{ route('airport.edit', $airport) }}" class="ui button"><i class="edit icon"></i> Edit</a>
+                        <form action="{{ route('airport.delete', $airport) }}" method="POST">
                         <button type='submit' class="ui button"><i class="x icon"></i> Delete</button>
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
@@ -32,7 +32,7 @@
         <tr>
             <th colspan="3">
                 <div class="ui right floated pagination menu">
-                   {{$airports->links()}}
+                   {{ $airports->links() }}
                 </div>
             </th>
         </tr>

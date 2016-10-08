@@ -5,7 +5,7 @@
     @include('airline.partials.menu')
 
     <div class="ui segment">
-        <form class="ui form" method="post" action="{{ route('airline.update',$airline->id) }}">
+        <form class="ui form" method="post" action="{{ route('airline.update', $airline) }}">
 
             <h4 class="ui dividing header">Edit Airline</h4>
 
@@ -15,7 +15,7 @@
             <div class="field">
                 <label>Name</label>
                 <div class="field">
-                    <input type="text" name="name" placeholder="{{$airline->name}}">
+                    <input type="text" name="name" placeholder="{{ $airline->name }}">
                 </div>
             </div>
             <button class="ui button" tabindex="0">edit</button>

@@ -5,7 +5,7 @@
     @include('airport.partials.menu')
 
     <div class="ui segment">
-        <form class="ui form" method="post" action="{{ route('airport.update',$airport->id) }}">
+        <form class="ui form" method="post" action="{{ route('airport.update', $airport) }}">
 
             <h4 class="ui dividing header">Create Airport</h4>
 
@@ -15,35 +15,35 @@
             <div class="field">
                 <label>Name</label>
                 <div class="field">
-                    <input type="text" name="name" placeholder="{{$airport->name}}">
+                    <input type="text" name="name" placeholder="{{ $airport->name }}">
                 </div>
             </div>
 
             <div class="field">
                 <label>Fee</label>
                 <div class="field">
-                    <input type="number" name="fee" placeholder="{{$airport->fee}}">
+                    <input type="number" name="fee" placeholder="{{ $airport->fee }}">
                 </div>
             </div>
 
             <div class="field">
                 <label>Size</label>
                 <div class="field">
-                    <input type="number" name="size" placeholder="{{$airport->size}}">
+                    <input type="number" name="size" placeholder="{{ $airport->size }}">
                 </div>
             </div>
 
             <div class="field">
                 <label>Coordinates</label>
                 <div class="field">
-                    <input type="text" name="coordinates" placeholder="{{$airport->coordinates}}">
+                    <input type="text" name="coordinates" placeholder="{{ $airport->coordinates }}">
                 </div>
             </div>
 
             <div class="field">
                 <label>IATA</label>
                 <div class="field">
-                    <input type="text" name="iata" placeholder="{{$airport->iata}}">
+                    <input type="text" name="iata" placeholder="{{ $airport->iata }}">
                 </div>
             </div>
 

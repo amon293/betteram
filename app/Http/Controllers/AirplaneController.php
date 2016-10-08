@@ -54,32 +54,54 @@ class AirplaneController extends Controller
             ->withSuccess('Airplane was Created Successfully.');
     }
 
-    public function edit(Manufacturer $manufacturer,$id)
+    /**
+     * Edit Airplane
+     *
+     * @param \App\Models\Manufacturer $manufacturer
+     * @param \App\Models\Airplane $airplane
+     * @return $this
+     */
+    public function edit(Manufacturer $manufacturer, Airplane $airplane)
     {
-        $airplane = Airplane::find($id);
-
-        return view('airplane.edit',compact('airplane'))->with('manufacturers',$manufacturer->all());
+        return view('airplane.edit')
+            ->with('airplane', $airplane)
+            ->with('manufacturers', $manufacturer->all());
     }
 
-    public function update(AirplaneCreation $request,$id)
+    /**
+     * Update Airplane
+     *
+     * @param \App\Http\Requests\AirplaneCreation $request
+     * @param \App\Models\Airplane $airplane
+     * @return mixed
+     */
+    public function update(AirplaneCreation $request, Airplane $airplane)
     {
 
-       Airplane::find($id)->update($request->all());
+        $airplane->update($request->all());
 
         return redirect()
             ->route('airplane')
             ->withSuccess('Airplane was updated Successfully.');
     }
 
-    public function delete($id) {
+    /**
+     * Delete Airplane
+     *
+     * @param \App\Models\Airplane $airplane
+     * @return mixed
+     */
+    public function delete(Airplane $airplane)
+    {
 
-       $airplane = Airplane::find($id);
-       $file_path = trim($airplane->image,'http://192.168.99.100:8080');
-       File::delete($file_path);
-       $airplane->delete();
+        $file_path = trim($airplane->image, 'http://192.168.99.100:8080');
 
-       return redirect()
-           ->route('airplanes')
-           ->withSuccess('Airplane was Deleted Successfully');
+        File::delete($file_path);
+
+        $airplane->delete();
+
+        return redirect()
+            ->route('airplanes')
+            ->withSuccess('Airplane was Deleted Successfully');
     }
 }
