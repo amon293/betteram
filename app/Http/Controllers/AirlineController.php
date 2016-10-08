@@ -48,10 +48,14 @@ class AirlineController extends Controller
             ->withSuccess('Airline was Created Successfully.');
     }
 
-    public function edit($id)
+    /**
+     * Edit Airline
+     *
+     * @param \App\Models\Airline $airline
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(Airline $airline)
     {
-        $airline = Airline::find($id);
-
         return view('airline.edit', compact('airline'));
     }
 
