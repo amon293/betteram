@@ -15,7 +15,7 @@
         <i class="dashboard icon"></i>
         Catering
     </a>
-    <a class="item">
+    <a href="{{ route("airports") }}" class="item">
         <i class="plane icon"></i>
         Routes & Airports
     </a>

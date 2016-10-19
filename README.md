@@ -16,6 +16,7 @@ $ docker exec -it betteram_php sh -c "php -r \"file_exists('.env') || copy('.env
 $ docker exec -it betteram_php sh -c "php artisan key:generate"
 $ docker exec -it betteram_php sh -c "chmod -R 777 storage"
 $ docker exec -it betteram_php sh -c "php artisan migrate"
+$ docker exec -it betteram_php sh -c "php artisan db:seed"
 
 //Temporarely 
 // install nodejs on your local machine and 

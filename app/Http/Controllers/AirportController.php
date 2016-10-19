@@ -19,7 +19,7 @@ class AirportController extends Controller
      */
     public function index(Airport $airport)
     {
-        $airports = $airport->orderby('id', 'DESC')->paginate(5);
+        $airports = $airport->orderby('id', 'DESC')->paginate(15);
         return view('airport.index', compact('airports'));
     }
 

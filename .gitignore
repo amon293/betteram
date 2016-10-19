@@ -14,3 +14,4 @@ Homestead.yaml
 
 *.map
 /typings/
+/resources/assets/semantic/
