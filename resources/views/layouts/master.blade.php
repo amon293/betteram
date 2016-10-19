@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('semantic/dist/semantic.css') }}" rel="stylesheet">
+    <link href="{{ asset('semantic/semantic.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
