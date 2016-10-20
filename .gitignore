@@ -9,8 +9,8 @@ Homestead.yaml
 /public/semantic/
 /public/js/
 /public/css/
-/public/semantic/
 /public/uploads/*
+/jenkins/
 
 *.map
 /typings/

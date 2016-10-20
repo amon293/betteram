@@ -1,4 +1,3 @@
-
 mysql:
   image: mysql
   container_name: betteram_database
@@ -27,17 +26,29 @@ php:
   volumes:
     - .:/var/www/betteram
 
-#jenkins:
-#  build: .
-#  dockerfile: ./docker/jenkins/Dockerfile
-#  container_name: betteram_jenkins
-#  working_dir: /var/www/betteram
-#  volumes:
-#    - ./jenkins:/var/jenkins_home
-#  volumes_from:
-#    - php
-#  ports:
-#    - 8000:8080
+jenkins:
+  build: .
+  dockerfile: ./docker/jenkins/Dockerfile
+  container_name: betteram_jenkins
+  working_dir: /var/www/betteram
+  volumes:
+    - ./jenkins:/var/jenkins_home
+  volumes_from:
+    - php
+  ports:
+    - 8001:8080
+    - 50000:50000
+
+phpMyAdmin:
+  image: phpmyadmin/phpmyadmin
+  container_name: betteram_phpMyAdmin
+  working_dir: /var/www/betteram
+  volumes:
+    - ./jenkins:/var/jenkins_home
+  links:
+    - mysql
+  ports:
+    - 8002:80
 
 nginx:
   image: nginx:alpine

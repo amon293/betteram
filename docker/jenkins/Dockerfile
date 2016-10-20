@@ -1,4 +1,4 @@
-FROM jenkins
+FROM jenkins:latest
 
 WORKDIR /var/www/betteram
 
@@ -22,4 +22,4 @@ RUN apt-get install -y php7.0 php7.0-mysql php7.0-mbstring php7.0-redis \
 RUN npm install n gulp -g
 RUN n latest
 
-#USER jenkins
+#USER jenkins /recomended ... but lets do it in production only
