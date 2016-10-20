@@ -18,17 +18,17 @@ class CreateAirportsTable extends Migration
     {
         Schema::create('airports', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->integer('fee');
-            $table->integer('size');
-            $table->float('latitude');
-            $table->float('longitude');
-            $table->string('timezone');
-            $table->integer('runways');
-            $table->string('city');
-            $table->string('country');
-            $table->string('coordinates');
-            $table->string('iata');
+            $table->string('name')->nullable();
+            $table->integer('fee')->nullable();
+            $table->integer('size')->nullable();
+            $table->float('latitude')->nullable();
+            $table->float('longitude')->nullable();
+            $table->string('timezone')->nullable();
+            $table->integer('runways')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->string('coordinates')->nullable();
+            $table->string('iata')->nullable();
             $table->timestamps();
         });
     }
