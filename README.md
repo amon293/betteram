@@ -56,3 +56,6 @@ http://192.168.99.100:8080/ (or your docker-machine ip if its different from thi
 |-------|-----------------|----------|-------|
 | admin | admin@admin.com | 123456   | admin |
 | user  | user@user.com   | 123456   | user  |
+
+# Jenkins Account
+# phpMyAdmin Account

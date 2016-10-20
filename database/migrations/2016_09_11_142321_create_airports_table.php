@@ -21,6 +21,12 @@ class CreateAirportsTable extends Migration
             $table->string('name');
             $table->integer('fee');
             $table->integer('size');
+            $table->float('latitude');
+            $table->float('longitude');
+            $table->string('timezone');
+            $table->integer('runways');
+            $table->string('city');
+            $table->string('country');
             $table->string('coordinates');
             $table->string('iata');
             $table->timestamps();
