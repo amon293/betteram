@@ -3,6 +3,9 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class AirportsTableSeeder
+ */
 class AirportsTableSeeder extends Seeder
 {
     /**
@@ -12,17 +15,6 @@ class AirportsTableSeeder extends Seeder
      */
     public function run()
     {
-
-        /**
-         * @todo
-         * How About storing the airports in json file and loop thought them here?...
-         * as the data will be huge.. i think will be easier for us to manage it as json
-         */
-//        $airports = new \Symfony\Component\Translation\Loader\JsonFileLoader('...json path');
-//
-//        foreach($airports  as $airport){
-//            \App\Models\Airport::create($airport);
-//        }
 
         DB::table('airports')->insert(['name' => 'Andorra la Vella Airport (ALV)', 'iata' => 'ALV', 'latitude' => 42.5004997, 'longitude' => 1.51712, 'timezone' => 'Europe/Andorra', 'runways' => 0, 'city' => 'Andorra La Vella', 'country' => 'Andorra (AD)']);
         DB::table('airports')->insert(['name' => 'Andulo Airport (ANL)', 'iata' => 'ANL', 'latitude' => -11.4722996, 'longitude' => 16.7108994, 'timezone' => 'Africa/Luanda', 'runways' => 0, 'city' => '', 'country' => '']);

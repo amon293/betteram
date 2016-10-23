@@ -12,7 +12,6 @@ use App\Models\Airport;
  */
 class CreateAirportJob
 {
-
     /**
      * @var array
      */
@@ -31,9 +30,10 @@ class CreateAirportJob
     /**
      * Execute the job.
      *
-     * @param \App\Models\Airport $airport
+     * @param Airport $airport
+     * @return Airport
      */
-    public function handle(Airport $airport)
+    public function handle(Airport $airport) : Airport
     {
 
         $airport = $airport->create($this->fields);
@@ -42,5 +42,7 @@ class CreateAirportJob
          * Announce AirportWasCreated
          */
         event(new AirportWasCreated($airport));
+
+        return $airport;
     }
 }

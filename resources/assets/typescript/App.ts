@@ -1,17 +1,24 @@
+interface Semantic extends JQuery {
+    transition(params?: any): any;
+    dropdown(params?: any): any;
+    checkbox(params?: any): any;
+    popup(params?: any): any;
+}
+
 export class App {
 
     init() {
-        console.log('initializing plugins')
+
         $('.message .close').on('click', function () {
-            $(this).closest('.message').transition('fade');
+            (<Semantic>$(this).closest('.message')).transition('fade');
         });
-        $('.ui.dropdown').dropdown();
-        $('.ui.checkbox').checkbox();
+        (<Semantic>$('.ui.dropdown')).dropdown();
+        (<Semantic>$('.ui.checkbox')).checkbox();
 
         /**
          * Shopping Popup menu
          */
-        $('.shopping')
+        (<Semantic>$('.shopping'))
             .popup({
                 inline: false,
                 hoverable: true,
@@ -30,4 +37,3 @@ export class App {
  * Init By itself... temporarily
  */
 new App().init()
-

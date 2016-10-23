@@ -36,8 +36,9 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('semantic/dist/semantic.js') }}"></script>
+<script src="{{ asset('semantic/semantic.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+@stack('scripts')
 
 </body>
 </html>

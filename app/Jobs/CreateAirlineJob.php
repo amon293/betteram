@@ -13,6 +13,7 @@ use App\Models\User;
  */
 class CreateAirlineJob
 {
+
     /**
      * @var User
      */
@@ -39,8 +40,9 @@ class CreateAirlineJob
      * Execute the job.
      *
      * @param Airline $airline
+     * @return Airline
      */
-    public function handle(Airline $airline)
+    public function handle(Airline $airline) : Airline
     {
 
         $airline = $airline->fill($this->fields);
@@ -51,5 +53,7 @@ class CreateAirlineJob
          * Announce AirlineWasCreated
          */
         event(new AirlineWasCreated($airline));
+
+        return $airline;
     }
 }

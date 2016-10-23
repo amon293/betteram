@@ -48,8 +48,9 @@ class CreateAirplaneJob
      *
      * @todo properly generate unique name for the airplane image
      * @param Airplane $airplane
+     * @return Airplane
      */
-    public function handle(Airplane $airplane)
+    public function handle(Airplane $airplane) : Airplane
     {
 
         $airplane = $airplane->fill(
@@ -73,5 +74,7 @@ class CreateAirplaneJob
          * Announce AirplaneWasCreated
          */
         event(new AirplaneWasCreated($airplane));
+
+        return $airplane;
     }
 }

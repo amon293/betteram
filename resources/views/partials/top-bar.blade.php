@@ -13,7 +13,7 @@
         <a class="item" href="{{ route('home') }}">Warnings</a>
         <a class="item" href="{{ route('home') }}">Updates</a>
         <a class="item" href="{{ route('home') }}">Stock Values</a>
-        <a class="item" href="{{ route('home') }}">Oil Quote</a>
+        <a class="item" href="{{ route('fuel.market') }}">Fuel</a>
         <a class="item" href="{{ route('home') }}">News</a>
         <div class="right menu">
             <a class="header item" href="{{ route('home') }}">Welcome back, {{ auth()->user()->name }}</a>
