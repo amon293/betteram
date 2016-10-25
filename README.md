@@ -32,8 +32,11 @@ gulp install --gulpfile node_modules/semantic-ui/gulpfile.js
  * Is this your project folder (choose yes)
  * Where should we put Semantic UI inside your project? ( write: resources/assets/semantic )
 
+ Install typing globally on your machine (npm install typings -g)
+
 git checkout semantic.json
 
+$ typings install
 $ ./node_modules/.bin/gulp
 
 ```
