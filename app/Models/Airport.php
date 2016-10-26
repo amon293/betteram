@@ -23,6 +23,6 @@ class Airport extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'fee', 'size', 'coordinates', 'iata'];
+    protected $fillable = ['name', 'fee', 'size', 'latitude', 'longitude', 'timezone', 'runways', 'city', 'country', 'coordinates', 'iata'];
 
 }

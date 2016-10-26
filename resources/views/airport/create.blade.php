@@ -19,16 +19,23 @@
             </div>
 
             <div class="field">
-                <label>Fee</label>
+                <label>IATA</label>
                 <div class="field">
-                    <input type="number" name="fee" placeholder="Fee">
+                    <input type="text" name="iata" placeholder="Iata Code">
                 </div>
             </div>
 
             <div class="field">
-                <label>Size</label>
+                <label>City</label>
                 <div class="field">
-                    <input type="number" name="size" placeholder="Size">
+                    <input type="text" name="city" placeholder="City">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Country</label>
+                <div class="field">
+                    <input type="text" name="country" placeholder="Country">
                 </div>
             </div>
 
@@ -40,9 +47,44 @@
             </div>
 
             <div class="field">
-                <label>IATA</label>
+                <label>Fee</label>
                 <div class="field">
-                    <input type="text" name="iata" placeholder="Iata Code">
+                    <input type="number" name="fee" placeholder="Fee">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Latitude</label>
+                <div class="field">
+                    <input type="text" name="latitude" placeholder="Latitude">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Longitude</label>
+                <div class="field">
+                    <input type="text" name="longitude" placeholder="Longitude">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Size</label>
+                <div class="field">
+                    <input type="number" name="size" placeholder="Size">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Runways</label>
+                <div class="field">
+                    <input type="number" name="runways" placeholder="Runways">
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Timezone</label>
+                <div class="field">
+                    <input type="text" name="timezone" placeholder="Timezone">
                 </div>
             </div>
 
