@@ -15,10 +15,16 @@
         <i class="dashboard icon"></i>
         Catering
     </a>
-    <a href="{{ route("airports") }}" class="item">
+
+    <div class="ui pointing dropdown link item">
         <i class="plane icon"></i>
-        Routes & Airports
-    </a>
+        <span class="text">Routes & Airports</span>
+        <div class="menu">
+            <a href="{{ route("airports") }}" class="item">Airports</a>
+            <a href="{{ route("routes") }}" class="item">Routes</a>
+        </div>
+    </div>
+
     <div class="ui pointing dropdown link item">
         <i class="shopping bag icon"></i>
         <span class="text">Shopping</span>

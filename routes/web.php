@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\FuelController;
 use App\Http\Controllers\ManufactureController;
+Use App\Http\Controllers\RouteController;
 
 $router->group(['middleware' => ['auth', 'test']], function ($router) {
     $router->get('/', function () {
@@ -73,3 +74,12 @@ $router->post('create/manufacture/store', ManufactureController::class . '@store
  */
 $router->get('fuel/market', FuelController::class . '@index')->name('fuel.market');
 
+/**
+ * Route
+ */
+$router->get('routes', RouteController::class . '@index')->name('routes');
+$router->get('create/route', RouteController::class . '@create')->name('route.create');
+$router->post('create/route/store', RouteController::class . '@store')->name('route.store');
+$router->get('route/{route}/edit', RouteController::class . '@edit')->name('route.edit');
+$router->put('route/{route}', RouteController::class . '@update')->name('route.update');
+$router->delete('route/{route}', RouteController::class . '@delete')->name('route.delete');
