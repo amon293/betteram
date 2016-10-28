@@ -2,8 +2,17 @@
 
 namespace App\Models;
 
+use App\RouteDestination;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
+/**
+ * Class Route
+ *
+ * @package App\Models
+ */
 class Route extends Model
 {
     /**
@@ -20,18 +29,45 @@ class Route extends Model
      */
     protected $fillable = ['name'];
 
-    public function destinations()
+    /**
+     * Order Result Descending
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param string $field
+     * @return mixed
+     */
+    public function scopeDesc(Builder $query, $field = 'id')
     {
-        return $this->hasMany('App\Models\RouteDestination');
+        $query->orderBy($field, 'DESC');
     }
 
-    public function airport()
+    /**
+     * Destinations Relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function destinations() : HasMany
     {
-        return $this->hasOne('App\Models\Airport');
+        return $this->hasMany(RouteDestination::class);
     }
 
-    public function airplane()
+    /**
+     * Airport Relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function airport() : HasOne
     {
-        return $this->hasOne('App\Models\Airplane');
+        return $this->hasOne(Airport::class);
+    }
+
+    /**
+     * Airplane Relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function airplane() : HasOne
+    {
+        return $this->hasOne(Airplane::class);
     }
 }

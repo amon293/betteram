@@ -2,19 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AirportCreation;
+use App\Jobs\CreateAirportJob;
+use App\Models\Airport;
 use App\Models\Route;
-use Illuminate\Http\Request;
 
+/**
+ * Class RouteController
+ *
+ * @package App\Http\Controllers
+ */
 class RouteController extends Controller
 {
     /**
+     * Show All Routes
+     *
      * @param \App\Models\Route $route
      * @return \Illuminate\View\View
      */
     public function index(Route $route)
     {
-        $routes = $route->orderby('id', 'DESC')->paginate(15);
-        return view('route.index', compact('routes'));
+        return view('route.index')->with('routes',
+            $route->desc()->paginate()
+        );
     }
 
     /**
@@ -45,7 +55,7 @@ class RouteController extends Controller
     /**
      * Edit Airport
      *
-     * @param \App\Models\Airport $airport
+     * @param Airport $airport
      * @return $this
      */
     public function edit(Airport $airport)
@@ -56,8 +66,8 @@ class RouteController extends Controller
     /**
      * Update Airport
      *
-     * @param \App\Http\Requests\AirportCreation $request
-     * @param \App\Models\Airport $airport
+     * @param AirportCreation $request
+     * @param Airport $airport
      * @return mixed
      */
     public function update(AirportCreation $request, Airport $airport)
@@ -73,7 +83,7 @@ class RouteController extends Controller
     /**
      * Delete Airport
      *
-     * @param \App\Models\Airport $airport
+     * @param Airport $airport
      * @return mixed
      */
     public function delete(Airport $airport)
