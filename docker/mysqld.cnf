@@ -1,0 +1,16 @@
+[mysqld]
+
+#remove this on production...
+skip-grant-tables
+
+skip-host-cache
+skip-name-resolve
+pid-file	= /var/run/mysqld/mysqld.pid
+socket		= /var/run/mysqld/mysqld.sock
+datadir		= /var/lib/mysql
+#log-error	= /var/log/mysql/error.log
+
+#add the allowed address here...
+#bind-address	= 192.168.1.226
+
+symbolic-links=0
