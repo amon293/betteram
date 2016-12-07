@@ -8,8 +8,8 @@
         <thead>
         <tr>
             <th>Name</th>
-            <th>From</th>
-            <th>Final Destiny</th>
+            <th>From Airport</th>
+            <th>To Airport</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -17,8 +17,8 @@
         @foreach($routes as $route)
             <tr>
                 <td>{{ $route->name }}</td>
-                <td>{{ $route->country }}</td>
-                <td>{{ $route->city }}</td>
+                <td>{{ $route->fromAirport->name }}</td>
+                <td>{{ $route->toAirport->name }}</td>
                 <td class="collapsing">
                     <div class="ui small basic icon buttons">
                         <a href="{{ route('route.edit', $route) }}" class="ui button"><i class="edit icon"></i> Edit</a>

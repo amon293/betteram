@@ -17,9 +17,12 @@ class CreateRouteTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('user_id');
-            $table->integer('airport_id');
-            $table->integer('airplane_id');
             $table->integer('airline_id');
+            $table->integer('airplane_id');
+            $table->integer('from_airport_id');
+            $table->integer('to_airport_id');
+            $table->double('price');
+            $table->timestamps();
         });
     }
 

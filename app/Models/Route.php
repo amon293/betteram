@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-use App\RouteDestination;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Route
@@ -27,7 +25,7 @@ class Route extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'price', 'user_id','airline_id'];
 
     /**
      * Order Result Descending
@@ -41,33 +39,19 @@ class Route extends Model
         $query->orderBy($field, 'DESC');
     }
 
-    /**
-     * Destinations Relationship
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function destinations() : HasMany
+    public function airplane() : BelongsTo
     {
-        return $this->hasMany(RouteDestination::class);
+        return $this->belongsTo(Airplane::class);
     }
 
-    /**
-     * Airport Relationship
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function airport() : HasOne
+    public function fromAirport() : BelongsTo
     {
-        return $this->hasOne(Airport::class);
+        return $this->belongsTo(Airport::class);
     }
 
-    /**
-     * Airplane Relationship
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function airplane() : HasOne
+    public function toAirport() : BelongsTo
     {
-        return $this->hasOne(Airplane::class);
+        return $this->belongsTo(Airport::class);
     }
+
 }

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AirportCreation;
-use App\Jobs\CreateAirportJob;
+use App\Http\Requests\RouteCreation;
+use App\Jobs\CreateRouteJob;
+use App\Models\Airplane;
 use App\Models\Airport;
 use App\Models\Route;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class RouteController
@@ -34,65 +36,76 @@ class RouteController extends Controller
      */
     public function create()
     {
-        return view('route.create');
+        $airplanes = Airplane::all();
+        $airports = Airport::all();
+        return view('route.create', compact('airplanes', 'airports'));
     }
 
     /**
-     * @param AirportCreation $request
+     * @param RouteCreation $request
      */
-    public function store(AirportCreation $request)
+    public function store(RouteCreation $request)
     {
-
-        $this->dispatch(new CreateAirportJob(
-            $request->all()
+        $this->dispatch(new CreateRouteJob(
+            Airplane::find($request->airplane_id),
+            Airport::find($request->from_airport_id),
+            Airport::find($request->to_airport_id),
+            array_merge(
+                $request->only('name', 'price'),
+                ["user_id" => Auth::user()->id, 'airline_id' => 1]
+            )
         ));
 
         return redirect()
-            ->route('airports')
-            ->withSuccess('Airport was Created Successfully.');
+            ->route('routes')
+            ->withSuccess('Route was Created Successfully.');
     }
 
     /**
      * Edit Airport
      *
-     * @param Airport $airport
+     * @param Route $route
      * @return $this
      */
-    public function edit(Airport $airport)
+    public function edit(Route $route)
     {
-        return view('airport.edit')->with('airport', $airport);
+        $airplanes = Airplane::all();
+        $airports = Airport::all();
+        return view('route.edit', compact('route', 'airplanes', 'airports'));
     }
 
     /**
      * Update Airport
      *
-     * @param AirportCreation $request
-     * @param Airport $airport
+     * @param RouteCreation $request
+     * @param Route $route
      * @return mixed
      */
-    public function update(AirportCreation $request, Airport $airport)
+    public function update(RouteCreation $request, Route $route)
     {
-
-        $airport->update($request->all());
+        $route->airplane()->associate(Airplane::find($request->airplane_id));
+        $route->fromAirport()->associate(Airport::find($request->from_airport_id));
+        $route->toAirport()->associate(Airport::find($request->to_airport_id));
+        $route->update($request->only('name', 'price'));
 
         return redirect()
-            ->route('airports')
-            ->withSuccess('Airport was updated Successfully.');
+            ->route('routes')
+            ->withSuccess('Route was updated Successfully.');
     }
 
     /**
      * Delete Airport
      *
-     * @param Airport $airport
+     * @param Route $route
      * @return mixed
      */
-    public function delete(Airport $airport)
+    public function delete(Route $route)
     {
 
-        $airport->delete();
+        $route->delete();
 
         return redirect()
-            ->route('airports')
-            ->withSuccess('Airport was Deleted Successfully');
+            ->route('routes')
+            ->withSuccess('Route was Deleted Successfully');
     }
 }
