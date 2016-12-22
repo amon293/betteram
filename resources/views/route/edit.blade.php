@@ -22,7 +22,7 @@
             <div class="field">
                 <label>Airplane</label>
                 <div class="ui fluid search selection dropdown">
-                    <input type="hidden" name="airplane_id" value="{{ $route->airplane->id }}">
+                    <input type="hidden" name="airplane_id" id="airplane_id" value="{{ $route->airplane->id }}">
                     <i class="dropdown icon"></i>
                     <div class="default text">Select Airplane</div>
                     <div class="menu">
