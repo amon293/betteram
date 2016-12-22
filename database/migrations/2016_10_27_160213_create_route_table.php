@@ -21,7 +21,7 @@ class CreateRouteTable extends Migration
             $table->integer('airplane_id');
             $table->integer('from_airport_id');
             $table->integer('to_airport_id');
-            $table->double('price');
+            $table->double('economy_price');
             $table->timestamps();
         });
     }

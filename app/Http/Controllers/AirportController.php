@@ -92,4 +92,15 @@ class AirportController extends Controller
             ->withSuccess('Airport was Deleted Successfully');
     }
 
+    /**
+     * Get Airport coordinates
+     *
+     * @param \App\Models\Airport $airport
+     * @return mixed
+     */
+    public function coordinates(Airport $airport)
+    {
+        return json_encode(array("latitude" => $airport->latitude, "longitude" => $airport->longitude));
+    }
+
 }

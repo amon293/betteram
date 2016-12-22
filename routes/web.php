@@ -51,6 +51,7 @@ $router->post('create/airplane/store', AirplaneController::class . '@store')->na
 $router->get('airplane/{airplane}/edit', AirplaneController::class . '@edit')->name('airplane.edit');
 $router->put('airplane/{airplane}', AirplaneController::class . '@update')->name('airplane.update');
 $router->delete('airline/{airplane}', AirplaneController::class . '@delete')->name('airplane.delete');
+$router->get('airplane/{airplane}', AirplaneController::class . '@airplane')->name('airplane.airplane');
 
 /**
  * Airport
@@ -61,6 +62,7 @@ $router->post('create/airport/store', AirportController::class . '@store')->name
 $router->get('airport/{airport}/edit', AirportController::class . '@edit')->name('airport.edit');
 $router->put('airport/{airport}', AirportController::class . '@update')->name('airport.update');
 $router->delete('airport/{airport}', AirportController::class . '@delete')->name('airport.delete');
+$router->get('airport/{airport}/coordinates', AirportController::class . '@coordinates')->name('airport.coordinates');
 
 /**
  * Manufacture

@@ -104,4 +104,9 @@ class AirplaneController extends Controller
             ->route('airplanes')
             ->withSuccess('Airplane was Deleted Successfully');
     }
+
+    public function airplane(Airplane $airplane)
+    {
+        return $airplane;
+    }
 }

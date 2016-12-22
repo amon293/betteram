@@ -9,6 +9,7 @@ gulp.task('copy-vendors', function () {
     return gulp.src(
         [
             './node_modules/jquery/dist/jquery.min.js',
+            './resources/assets/js/route.js',
         ])
         .pipe(copy('./public/js', {prefix: 3}));
 })

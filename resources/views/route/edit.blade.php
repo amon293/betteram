@@ -36,7 +36,7 @@
             <div class="field">
                 <label>From</label>
                 <div class="ui fluid search selection dropdown">
-                    <input type="hidden" name="from_airport_id" value="{{ $route->fromAirport->id }}">
+                    <input type="hidden" name="from_airport_id" value="{{ $route->fromAirport->id }}" id="from_airport_id">
                     <i class="dropdown icon"></i>
                     <div class="default text">Select Airport</div>
                     <div class="menu">
@@ -50,7 +50,7 @@
             <div class="field">
                 <label>To</label>
                 <div class="ui fluid search selection dropdown">
-                    <input type="hidden" name="to_airport_id" value="{{ $route->toAirport->id }}">
+                    <input type="hidden" name="to_airport_id" value="{{ $route->toAirport->id }}" id="to_airport_id">
                     <i class="dropdown icon"></i>
                     <div class="default text">Select Airport</div>
                     <div class="menu">
@@ -60,11 +60,32 @@
                     </div>
                 </div>
             </div>
+            <div class="field">
+                <label>Distance</label>
+                <div class="ui right input field">
+                    <input type="text" id="distance" disabled>
+                </div>
+            </div>
 
             <div class="field">
-                <label>Price</label>
+                <label>Speed</label>
                 <div class="ui right input field">
-                    <input placeholder="Flight price" type="text" name="price" id="price" value="{{ $route->price }}">
+                    <input type="text" id="speed" disabled>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Time</label>
+                <div class="ui right input field">
+                    <input type="text" id="time" disabled>
+                </div>
+            </div>
+
+
+            <div class="field">
+                <label>Economy Class</label>
+                <div class="ui right input field">
+                    <input placeholder="Economy Class Price" type="text" name="price" id="economy_price" value="{{ $route->economy_price }}">
                 </div>
             </div>
 
@@ -73,3 +94,8 @@
     </div>
 
 @endsection
+
+@push('scripts')
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDrPlRO82vN0Zk3wjY-sk79l7Kq0-kWZw&libraries=geometry" async defer></script>
+
+@endpush

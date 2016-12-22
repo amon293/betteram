@@ -21,7 +21,7 @@
             <div class="field">
                 <label>Airplane</label>
                 <div class="ui fluid search selection dropdown">
-                    <input type="hidden" name="airplane_id">
+                    <input type="hidden" name="airplane_id" id="airplane_id">
                     <i class="dropdown icon"></i>
                     <div class="default text">Select Airplane</div>
                     <div class="menu">
@@ -35,7 +35,7 @@
             <div class="field">
                 <label>From</label>
                 <div class="ui fluid search selection dropdown">
-                    <input type="hidden" name="from_airport_id">
+                    <input type="hidden" name="from_airport_id" id="from_airport_id">
                     <i class="dropdown icon"></i>
                     <div class="default text">Select Airport</div>
                     <div class="menu">
@@ -49,7 +49,7 @@
             <div class="field">
                 <label>To</label>
                 <div class="ui fluid search selection dropdown">
-                    <input type="hidden" name="to_airport_id">
+                    <input type="hidden" name="to_airport_id" id="to_airport_id">
                     <i class="dropdown icon"></i>
                     <div class="default text">Select Airport</div>
                     <div class="menu">
@@ -61,9 +61,30 @@
             </div>
 
             <div class="field">
-                <label>Price</label>
+                <label>Distance</label>
                 <div class="ui right input field">
-                    <input placeholder="Flight price" type="text" name="price" id="price">
+                    <input type="text" id="distance" disabled>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Speed</label>
+                <div class="ui right input field">
+                    <input type="text" id="speed" disabled>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Time</label>
+                <div class="ui right input field">
+                    <input type="text" id="time" disabled>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Economy Class</label>
+                <div class="ui right input field">
+                    <input placeholder="Economy Class Price" type="text" name="economy_price" id="economy_price">
                 </div>
             </div>
 
@@ -72,3 +93,8 @@
     </div>
 
 @endsection
+
+@push('scripts')
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDrPlRO82vN0Zk3wjY-sk79l7Kq0-kWZw&libraries=geometry" async defer></script>
+
+@endpush

@@ -28,7 +28,7 @@ class CreateAirplanesTable extends Migration
             $table->string('fuel')->nullable();
             $table->string('cargo_load')->nullable();
             $table->string('range')->nullable();
-            $table->string('cruise_speed')->nullable();
+            $table->integer('cruise_speed')->nullable();
             $table->string('engine')->nullable();
             $table->timestamps();
         });
