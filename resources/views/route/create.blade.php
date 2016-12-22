@@ -96,5 +96,6 @@
 
 @push('scripts')
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDrPlRO82vN0Zk3wjY-sk79l7Kq0-kWZw&libraries=geometry" async defer></script>
+<script src="{{ asset('js/route.js') }}"></script>
 
 @endpush
