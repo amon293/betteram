@@ -85,7 +85,7 @@
             <div class="field">
                 <label>Economy Class</label>
                 <div class="ui right input field">
-                    <input placeholder="Economy Class Price" type="text" name="price" id="economy_price" value="{{ $route->economy_price }}">
+                    <input placeholder="Economy Class Price" type="text" name="economy_price" id="economy_price" value="{{ $route->economy_price }}">
                 </div>
             </div>
 

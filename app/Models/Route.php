@@ -25,7 +25,7 @@ class Route extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'price', 'user_id','airline_id'];
+    protected $fillable = ['name', 'economy_price', 'user_id','airline_id'];
 
     /**
      * Order Result Descending

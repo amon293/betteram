@@ -51,7 +51,7 @@ class RouteController extends Controller
             Airport::find($request->from_airport_id),
             Airport::find($request->to_airport_id),
             array_merge(
-                $request->only('name', 'price'),
+                $request->only('name', 'economy_price'),
                 ["user_id" => Auth::user()->id, 'airline_id' => 1]
             )
         ));
@@ -86,7 +86,7 @@ class RouteController extends Controller
         $route->airplane()->associate(Airplane::find($request->airplane_id));
         $route->fromAirport()->associate(Airport::find($request->from_airport_id));
         $route->toAirport()->associate(Airport::find($request->to_airport_id));
-        $route->update($request->only('name', 'price'));
+        $route->update($request->only('name', 'economy_price'));
 
         return redirect()
             ->route('routes')
