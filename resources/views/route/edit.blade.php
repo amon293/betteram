@@ -11,6 +11,8 @@
 
             {{ csrf_field() }}
             {{method_field('PUT')}}
+            <input type="hidden" id="flight_distance" name="flight_distance" value="{{ $route->flight_distance }}">
+            <input type="hidden" id="flight_time" name="flight_time" value="{{ $route->flight_time }}">
 
             <div class="field">
                 <label>Name</label>
@@ -60,27 +62,6 @@
                     </div>
                 </div>
             </div>
-            <div class="field">
-                <label>Distance</label>
-                <div class="ui right input field">
-                    <input type="text" id="distance" disabled>
-                </div>
-            </div>
-
-            <div class="field">
-                <label>Speed</label>
-                <div class="ui right input field">
-                    <input type="text" id="speed" disabled>
-                </div>
-            </div>
-
-            <div class="field">
-                <label>Time</label>
-                <div class="ui right input field">
-                    <input type="text" id="time" disabled>
-                </div>
-            </div>
-
 
             <div class="field">
                 <label>Economy Class</label>

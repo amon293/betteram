@@ -27,6 +27,12 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                         </form>
+
+                        <form action="{{ route('flight.flynow') }}" method="POST">
+                            <button type='submit' class="ui button" @unless(!$route->isFlying()) disabled @endunless><i class="plane icon"></i> Fly now</button>
+                            {{ csrf_field() }}
+                            <input type="hidden" id="route" name="route" value="{{ $route->id }}">
+                        </form>
                     </div>
                 </td>
             </tr>

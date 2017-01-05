@@ -9,7 +9,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\FuelController;
 use App\Http\Controllers\ManufactureController;
-Use App\Http\Controllers\RouteController;
+use App\Http\Controllers\RouteController;
+use App\Http\Controllers\FlightController;
 
 $router->group(['middleware' => ['auth', 'test']], function ($router) {
     $router->get('/', function () {
@@ -85,3 +86,8 @@ $router->post('create/route/store', RouteController::class . '@store')->name('ro
 $router->get('route/{route}/edit', RouteController::class . '@edit')->name('route.edit');
 $router->put('route/{route}', RouteController::class . '@update')->name('route.update');
 $router->delete('route/{route}', RouteController::class . '@delete')->name('route.delete');
+
+/**
+ * Flight Plan
+ */
+$router->post('flight/flynow/', FlightController::class . '@flynow')->name('flight.flynow');

@@ -36,7 +36,7 @@ class CreateAirportJob
     public function handle(Airport $airport) : Airport
     {
 
-        $airport = $airport->create($this->fields);
+        $airport->create($this->fields);
 
         /**
          * Announce AirportWasCreated

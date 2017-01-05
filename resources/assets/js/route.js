@@ -5,7 +5,7 @@ $(document).ready(function() {
             return;
 
         var distance = calcDistance($("#from_airport_id").val(), $("#to_airport_id").val());
-        $("#distance").val(distance);
+        $("#flight_distance").val(distance);
 
         if ($("#airplane_id").val().length==0)
             return;
@@ -13,8 +13,8 @@ $(document).ready(function() {
         var airplane = getAirplane($("#airplane_id").val());
         $("#speed").val(airplane.cruise_speed);
 
-        var time = calcTime(distance, airplane.cruise_speed);
-        $("#time").val(time);
+        var time = calcTime(distance, airplane.cruise_speed); //get the time in seconds
+        $("#flight_time").val(time);
     });
 
     $("#to_airport_id").change(function() {
@@ -22,7 +22,7 @@ $(document).ready(function() {
             return;
 
         var distance = calcDistance($("#from_airport_id").val(), $("#to_airport_id").val());
-        $("#distance").val(distance);
+        $("#flight_distance").val(distance);
 
         if ($("#airplane_id").val().length==0)
             return;
@@ -30,8 +30,8 @@ $(document).ready(function() {
         var airplane = getAirplane($("#airplane_id").val());
         $("#speed").val(airplane.cruise_speed);
 
-        var time = calcTime(distance, airplane.cruise_speed);
-        $("#time").val(time);
+        var time = calcTime(distance, airplane.cruise_speed); //get the time in seconds
+        $("#flight_time").val(time);
     });
 
     $("#airplane_id").change(function() {
@@ -39,13 +39,13 @@ $(document).ready(function() {
             return;
 
         var distance = calcDistance($("#from_airport_id").val(), $("#to_airport_id").val());
-        $("#distance").val(distance);
+        $("#flight_distance").val(distance);
 
         var airplane = getAirplane($("#airplane_id").val());
         $("#speed").val(airplane.cruise_speed);
 
-        var time = calcTime(distance, airplane.cruise_speed);
-        $("#time").val(time);
+        var time = calcTime(distance, airplane.cruise_speed); //get the time in seconds
+        $("#flight_time").val(time);
     });
 
     function calcDistance(fromAirportId, toAirportId) {
@@ -85,8 +85,6 @@ $(document).ready(function() {
     }
 
     function calcTime(distance, cruiseSpeed) {
-        var time = (distance/cruiseSpeed);
-
-        return time;
+        return ((distance/cruiseSpeed)*60)*60;
     }
 });

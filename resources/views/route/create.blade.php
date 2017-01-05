@@ -10,6 +10,8 @@
             <h4 class="ui dividing header">Create Route</h4>
 
             {{ csrf_field() }}
+            <input type="hidden" id="flight_distance" name="flight_distance">
+            <input type="hidden" id="flight_time" name="flight_time">
 
             <div class="field">
                 <label>Name</label>
@@ -57,27 +59,6 @@
                             <div class="item" data-value="{{ $airport->id }}">{{ $airport->name }}</div>
                         @endforeach
                     </div>
-                </div>
-            </div>
-
-            <div class="field">
-                <label>Distance</label>
-                <div class="ui right input field">
-                    <input type="text" id="distance" disabled>
-                </div>
-            </div>
-
-            <div class="field">
-                <label>Speed</label>
-                <div class="ui right input field">
-                    <input type="text" id="speed" disabled>
-                </div>
-            </div>
-
-            <div class="field">
-                <label>Time</label>
-                <div class="ui right input field">
-                    <input type="text" id="time" disabled>
                 </div>
             </div>
 

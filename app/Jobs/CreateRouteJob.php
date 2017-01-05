@@ -10,6 +10,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Auth;
 
 class CreateRouteJob implements ShouldQueue
 {
@@ -66,6 +67,7 @@ class CreateRouteJob implements ShouldQueue
         $route->airplane()->associate($this->airplane);
         $route->fromAirport()->associate($this->fromAirport);
         $route->toAirport()->associate($this->toAirport);
+        $route->user()->associate(Auth::user());
 
         $route->save();
 

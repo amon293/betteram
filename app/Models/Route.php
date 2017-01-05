@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,7 +26,7 @@ class Route extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'economy_price', 'user_id','airline_id'];
+    protected $fillable = ['name', 'economy_price','airline_id', 'flight_distance', 'flight_time'];
 
     /**
      * Order Result Descending
@@ -52,6 +53,32 @@ class Route extends Model
     public function toAirport() : BelongsTo
     {
         return $this->belongsTo(Airport::class);
+    }
+
+    public function user() : BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the flights for the Route
+     */
+    public function flights()
+    {
+        return $this->hasMany(FlightPlan::class);
+    }
+
+    public function isFlying()
+    {
+        $now = Carbon::now();
+
+        foreach ($this->flights as $flight) {
+            if ($now->between($flight->getDeparture(), $flight->getArrived())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }
