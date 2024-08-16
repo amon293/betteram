@@ -16,3 +16,4 @@ Homestead.yaml
 /typings/
 /resources/assets/semantic/
 /resources/assets/typescript/**/*.js
+*comment*
